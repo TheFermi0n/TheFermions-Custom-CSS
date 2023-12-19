@@ -1,0 +1,316 @@
+@charset "UTF-8";
+/* @settings
+name: TheFermion's Custom CSS.
+id: thefermion-custom-css-settings
+settings:
+
+# Colors
+  -
+    id: thefermion-Colors
+    title: Colors
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: accent
+    title: Accent color
+    description: Accent color of obsidian. Open the dialogue and press save to apply the default accent.
+    type: variable-color
+    opacity: false
+    format: hsl-split
+    default: '#B05256'
+
+# Typography
+  -
+    id: thefermion-typography
+    title: Typography
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: font-text
+    title: Text font
+    description: Set font for editing and reading views.
+    type: variable-select
+    default: STIX Two Text
+    options:
+      - STIX Two Text
+      - SF Pro
+      - Spectral
+      - IBM Plex Sans
+      - Inter
+      - New York
+  -
+    id: font-monospace
+    title: Monosapce font
+    description: Set font for places like code blocks and frontmatter.
+    type: variable-select
+    quotes: true
+    default: IBM Plex Mono
+    options:
+      - IBM Plex Mono
+      - SF Mono
+      - Monaco
+  -
+    id: thefermion-highlight-improve
+    title: Imporve text highlithing
+    description: Adds border radius and padding to the markdown highlighting.
+    type: class-toggle
+    default: true
+  -
+    id: thefermion-math
+    title: STIX Two Math font
+    description: Set font for math to STIX Two Math.
+    type: class-toggle
+    default: true
+  -
+    id: thefermion-math-font
+    title: Improve math renders
+    description: Fix discrepancies in LaTeX math renders
+    type: class-toggle
+    default: true
+  -
+    id: thefermion-indent
+    title: Indent Paragraphs
+    description: Add indent to the paragraphs like LaTeX document.
+    default: true
+    type: class-toggle
+  -
+    id: thefermion-justify
+    title: Justify text
+    description: Add justification and hyphenation to text in both editor and preview mode.
+    default: true
+    type: class-toggle
+  -
+    id: thefermion-underline
+    title: Remove underlines
+    description: Eliminate those ugly underlines from the links everywhere.
+    default: true
+    type: class-toggle
+
+# Fixing UI elements
+  -
+    id: thefermion-UI-elements
+    title:  UI elements
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: thefermion-sidebar-title
+    title: Sidebar title cutoff
+    description: Specify the wrapping  of title in the left sidebar.
+    type: class-select
+    default: thefermion-sidebar-title-nowrap
+    options:
+    - 
+      label: "No wrap"
+      value: thefermion-sidebar-title-nowrap
+    -
+      label: Wrap
+      value: thefermion-sidebar-title-wrap
+  -
+    id: file-line-width
+    title: File line width
+    description: Set visible space inside the editor that  text can fill
+    type: variable-number
+    default: 700
+    format: px
+  -
+    id: thefermion-settings-shadow
+    title: Dim  background
+    description: Add shadow in the background of settings pane
+    default: false
+    type: class-toggle
+  -
+    id: thefermion-external-link
+    title: Remove Link icon
+    description: Removes the ugly url icon that is present right next to any external links.
+    default: true
+    type: class-toggle
+  -
+    id: thefermion-settings-pane
+    title: Improve settings
+    description: Change size and poisiton.
+    type: class-select
+    default: thefermion-settings-improve
+    options:
+    -
+      label: Normal
+      value: thefermion-settings-improve
+    -
+      label: Mini
+      value: thefermion-settings-mini
+
+# Plugin settings
+  -
+    id: thefermion-plugin
+    title: Plugins
+    type: heading
+    level: 1
+    collapsed: true
+
+# Plugin settings:: Pandoc
+  -
+    id: thefermion-plugin-pandoc
+    title: Pandoc
+    type: heading
+    level: 2
+    collapsed: true
+  - 
+    id: thefermion-pandoc-text-deco
+    title: Text decoration
+    description: Fixes the size and rotation of the pandoc reference list plugin's icon in the sidebar.
+    type: class-toggle
+    default: true
+  - 
+    id: thefermion-pandoc-citation-accent
+    title: Pandoc citation accent
+    description: Changes the citation accent of pandoc references in editor and reading view.
+    type: class-toggle
+    default: true
+
+# Plugin settings:: BCP
+  -
+    id: thefermion-plugin-bcp
+    title: Better Command Palette
+    type: heading
+    level: 2
+    collapsed: true
+  - 
+    id: thefermion-bcp
+    title: Remove border and title
+    description: Remove the border and title from the BCP pane. Looks ugly!!
+    type: class-toggle
+    default: true
+
+# Plugin settings:: Folder Notes
+  -
+    id: thefermion-plugin-foldernote
+    title: Folder Notes
+    type: heading
+    level: 2
+    collapsed: true
+  - 
+    id: thefermion-foldernote
+    title: Decrease underline thickness
+    description: Reduces the underline thickness of the folder notes title.
+    type: class-toggle
+    default: true
+
+*/
+
+/* -----------Typography----------------- */
+/** math font */
+.thefermion-math mjx-math.MJX-TEX {
+  font-family: STIX Two Math !important;
+}
+
+.thefermion-math-font .cm-s-obsidian span.cm-math,
+.thefermion-math-font .cm-s-obsidian span.hmd-fold-math-placeholder {
+  font-style: normal;
+}
+
+/** justify text */
+.thefermion-justify .markdown-preview-view,
+.thefermion-justify .markdown-rendered p,
+.thefermion-justify .cm-s-obsidian {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/** highlightr color fix  */
+.thefermion-highlight-improve .cm-s-obsidian span.cm-formatting-highlight,
+.thefermion-highlight-improve .cm-s-obsidian span.cm-highlight,
+.thefermion-highlight-improve .markdown-rendered mark {
+  /* background-color: rgba(var(--anp-highlight-color), 0.3);
+  color: rgb(var(--ctp-text)); */
+  border-radius: 5px;
+  padding: 2px;
+}
+
+/** decrease the underline thickness */
+.thefermion-underline .external-link,
+.thefermion-underline .markdown-source-view.mod-cm6 .cm-link .cm-underline,
+.thefermion-underline .markdown-source-view.mod-cm6 .cm-url .cm-underline {
+  /* text-decoration-thickness: 1px; */
+  text-decoration: none;
+}
+
+/* ------------UI elements---------------- */
+/** title cutoff in sidebar */
+body.thefermion-sidebar-title-nowrap {
+  --nav-item-white-space: nowrap;
+}
+body.thefermion-sidebar-title-wrap {
+  --nav-item-white-space: wrap;
+}
+
+/** improving the settings pane */
+.thefermion-settings-improve .modal.mod-settings {
+  max-width: none;
+  width: 70%;
+  height: 80%;
+  border: none;
+  overflow: hidden;
+}
+
+.thefermion-settings-mini .modal.mod-settings {
+  max-width: none;
+  width: 70%;
+  height: 50%;
+  border: none;
+  overflow: hidden;
+  align-self: flex-end;
+}
+
+.thefermion-settings-shadow .modal-bg {
+  background-color: rgba(17, 17, 27, 0.85);
+  backdrop-filter: blur(5px);
+}
+
+/** indenting the text like LaTeX */
+.thefermion-indent div.cm-line,
+.thefermion-indent p {
+  text-indent: 1.2em;
+}
+
+.thefermion-indent div.HyperMD-header {
+  text-indent: 0 !important;
+}
+
+/** turn off the link icon  */
+.thefermion-external-link .external-link {
+  background-image: none;
+  padding-right: 0px;
+}
+
+/* ------------Plugins---------------- */
+/** fix the pandoc icon */
+.thefermion-pandoc-text-deco.pwc-tooltips
+  :not(.cm-link-alias)
+  > :is(.pandoc-citation, .at).is-resolved {
+  text-decoration: none;
+}
+
+body.thefermion-pandoc-citation-accent {
+  --pwc-citation-color: var(--text-accent);
+}
+
+/** better command platte border  */
+.thefermion-bcp .better-command-palette .better-command-palette-title {
+  display: none;
+}
+
+.thefermion-foldernote.folder-note-underline
+  .has-folder-note
+  .nav-folder-title-content {
+  text-decoration-thickness: 1px;
+}
+
+/**! NEED TO ADD THESE IN SETTINGS  */
+
+/** FIX CANVAS FONT */
+.canvas-path-label,
+.canvas-node-label {
+  font-family: var(--font-text);
+}
