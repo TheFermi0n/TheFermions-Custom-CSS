@@ -34,7 +34,9 @@ settings:
     type: variable-select
     default: STIX Two Text
     options:
+      - YuMincho
       - STIX Two Text
+      - Hiragino Mincho ProN
       - SF Pro
       - Spectral
       - IBM Plex Sans
@@ -73,7 +75,7 @@ settings:
     id: thefermion-indent
     title: Indent Paragraphs
     description: Add indent to the paragraphs like LaTeX document.
-    default: true
+    default: false
     type: class-toggle
   -
     id: thefermion-justify
@@ -87,6 +89,18 @@ settings:
     description: Eliminate those ugly underlines from the links everywhere.
     default: true
     type: class-toggle
+  -
+    id: thefermion-canvas-font
+    title: Fix the canvas heading font
+    description: Changes the heading font to var(--font-text)
+    default: true
+    type: class-toggle    
+  -
+    id: thefermion-canvas-center
+    title: Center align Canvas headings
+    description: Well, it does what the title says.
+    default: true
+    type: class-toggle    
 
 # Fixing UI elements
   -
@@ -108,6 +122,12 @@ settings:
     -
       label: Wrap
       value: thefermion-sidebar-title-wrap
+  -
+    id: thefermion-image
+    title: Center align image
+    description: This will align the images on both editor and reader view to center.
+    type: class-toggle
+    default: true
   -
     id: file-line-width
     title: File line width
@@ -200,6 +220,14 @@ settings:
 */
 
 /* -----------Typography----------------- */
+/** FIX CANVAS FONT */
+.thefermion-canvas-font.canvas-path-label,
+.canvas-node-label {
+  font-family: var(--font-text);
+}
+.thefermion-canvas-center.canvas-node-content h1 {
+  text-align: center;
+}
 /** math font */
 .thefermion-math mjx-math.MJX-TEX {
   font-family: STIX Two Math !important;
@@ -237,6 +265,13 @@ settings:
 }
 
 /* ------------UI elements---------------- */
+/** center the image  */
+.thefermion-image img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /** title cutoff in sidebar */
 body.thefermion-sidebar-title-nowrap {
   --nav-item-white-space: nowrap;
@@ -309,8 +344,15 @@ body.thefermion-pandoc-citation-accent {
 
 /**! NEED TO ADD THESE IN SETTINGS  */
 
-/** FIX CANVAS FONT */
-.canvas-path-label,
-.canvas-node-label {
-  font-family: var(--font-text);
+ruby > rt {
+  font-size: 60%;
+  opacity: 0;
+}
+
+ruby:hover > rt {
+  opacity: 1;
+}
+
+.embed-underline .internal-embed:not(.pdf-embed) {
+  text-decoration: none;
 }
